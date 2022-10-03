@@ -1,12 +1,11 @@
-import { DataFetcher } from "./Adapter/DataFetcher/DataFetcher.mjs";
-import { AggregateTable } from "./Core/Domain/Table/AggregateTable.mjs";
+import {CourseAggregate} from "./Course/Core/Domain/CourseAggregate.mjs";
+import {DataTableAdapter as DataTableAdapter} from "./Adapters/DataTable/DataTableAdapter.mjs";
 
 try {
-    const dataFetcher = DataFetcher.new();
-    const data = await dataFetcher.fetchData();
+    const dataTable = DataTableAdapter.new()
 
-    const table = AggregateTable.new(data);
-    table.render()
+    const course = CourseAggregate.new();
+    course.students(dataTable)
 } catch (error) {
     console.error(error);
 }

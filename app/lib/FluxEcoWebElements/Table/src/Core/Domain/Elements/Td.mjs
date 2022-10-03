@@ -1,3 +1,5 @@
+import {DataFetcherAdapter} from "../../../Adapters/DataFetcher/DataFetcherAdapter.mjs";
+
 export class Td extends HTMLElement {
     /**
      * @type {string}
@@ -29,4 +31,4 @@ export class Td extends HTMLElement {
         return td;
     }
 }
-customElements.define('flux-eco-table-aggregate-td', Td);
+customElements.define('flux-eco-web-elements-table-core-td', Td);

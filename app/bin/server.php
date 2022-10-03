@@ -22,9 +22,9 @@ $server->set(
         'open_tcp_nodelay' => getenv('SWOOLE_HTTP_OPEN_TCP_NODELAY'),
         //When the TCP connection is opened, when sending data, the Nagle merge algorithm will not be closed, and it will be sent to the client connection immediately. In some scenarios, such as Http server, the response speed can be improved.
         //'log_file' => getenv('SWOOLE_HTTP_LOG_FILE_PATH_NAME'),  //log file path
-        'document_root' => '/app/src',
+        'document_root' => '/app',
         'enable_static_handler' => true,
-        'static_handler_locations' => ['/'],
+        'static_handler_locations' => ['/src/','/lib/'],
     ]
 );
 

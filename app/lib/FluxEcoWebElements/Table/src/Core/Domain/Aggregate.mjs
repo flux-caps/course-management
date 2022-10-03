@@ -1,9 +1,5 @@
 import { Tr } from "./Elements/Tr.mjs";
-export class AggregateTable extends HTMLElement {
-    /**
-     * @type {ShadowRoot}
-     */
-    #shadow;
+export class Aggregate extends HTMLElement {
     /**
      * @type {array}
      */
@@ -11,7 +7,7 @@ export class AggregateTable extends HTMLElement {
 
     /**
      * @param {array} data
-     * @returns {AggregateTable}
+     * @returns {Aggregate}
      */
     static new(data) {
         return new this(
@@ -26,18 +22,23 @@ export class AggregateTable extends HTMLElement {
     constructor(data) {
         super();
         this.#data = data;
-        this.#shadow = this.attachShadow({ mode: "closed" });
     }
 
+    /**
+     * @returns {HTMLTableElement}
+     */
     render() {
         const table = document.createElement("table");
+
+        console.log(this.#data);
+
         for (let i = 0; i < this.#data.length; i++) {
+            const tr = document.createElement("table");
             table.appendChild(
                 Tr.new(this.#data[i]).render()
             );
         }
-        this.#shadow.appendChild(table);
-        document.body.appendChild(this.#shadow);
+        return table;
     }
 }
-customElements.define('flux-eco-table-aggregate', AggregateTable);
+customElements.define('flux-eco-web-elements-table-core-aggregate', Aggregate);

@@ -1,7 +1,11 @@
-export class DataFetcher extends HTMLElement {
+import {DataFetcher} from "../../Core/Ports/DataFetcher.mjs";
+import {DataTableAdapter} from "../../../../../../src/Adapters/DataTable/DataTableAdapter.mjs";
+import {TableApi} from "../../TableApi.mjs";
+
+export class DataFetcherAdapter extends DataFetcher {
 
     /**
-     * @returns {DataFetcher}
+     * @returns {DataFetcherAdapter}
      */
     static new() {
         return new this(
@@ -27,9 +31,8 @@ export class DataFetcher extends HTMLElement {
                 return response.json();
             })
             .catch((err) => console.error(`Fetch problem: ${err.message}`));
-
         return response;
     }
 
 }
-customElements.define('flux-eco-data-fetcher', DataFetcher);
+customElements.define('flux-eco-web-elements-table-adapters-data-fetcher-adapter', DataFetcherAdapter);
