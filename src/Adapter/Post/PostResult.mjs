@@ -1,3 +1,0 @@
-/**
- * @typedef {{ok: boolean}} PostResult
- */

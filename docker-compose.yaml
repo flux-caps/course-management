@@ -1,0 +1,10 @@
+services:
+  flux-eco-course-management:
+    build:
+      context: .
+      target: flux-eco-course-management
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+    ports:
+      - 8010:9501
