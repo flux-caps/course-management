@@ -24,7 +24,7 @@ $server->set(
         //'log_file' => getenv('SWOOLE_HTTP_LOG_FILE_PATH_NAME'),  //log file path
         'document_root' => '/app',
         'enable_static_handler' => true,
-        'static_handler_locations' => ['/src/','/lib/'],
+        'static_handler_locations' => ['/'],
     ]
 );
 

@@ -1,9 +1,11 @@
 export class DataTable {
+
     /**
-     * @returns {HTMLTableElement}
+     * @abstract
+     * @param {string} data
+     * @returns {HTMLElement}
      */
-    render() {
+    render(data) {
         console.error("render is not implemented");
     }
 }
-customElements.define('flux-eco-course-management-ports-data-table', DataTable);

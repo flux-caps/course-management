@@ -1,5 +1,4 @@
 import {Td} from "./Td.mjs";
-
 export class Tr extends HTMLElement {
     /**
      * @type {object}

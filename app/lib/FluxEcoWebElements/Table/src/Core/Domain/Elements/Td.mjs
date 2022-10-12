@@ -1,5 +1,3 @@
-import {DataFetcherAdapter} from "../../../Adapters/DataFetcher/DataFetcherAdapter.mjs";
-
 export class Td extends HTMLElement {
     /**
      * @type {string}

@@ -1,6 +1,6 @@
-import {Table} from "../Domain/Table.mjs";
+import {Service} from "../Core/Ports/Service.mjs";
+export class TableApi {
 
-export class Service {
     /**
      * @type {array}
      */
@@ -8,7 +8,7 @@ export class Service {
 
     /**
      * @param {array} data
-     * @returns {Service}
+     * @returns {TableApi}
      */
     static new(data) {
         return new this(
@@ -28,6 +28,7 @@ export class Service {
      * @return {HTMLElement}
      */
     render() {
-        return Table.new(this.#data).render();
+        const service = Service.new(this.#data);
+        return service.render();
     }
 }

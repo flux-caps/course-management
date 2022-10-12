@@ -1,6 +1,4 @@
-import {DataFetcher} from "../../Core/Ports/DataFetcher.mjs";
-import {DataTableAdapter} from "../../../../../../src/Adapters/DataTable/DataTableAdapter.mjs";
-import {TableApi} from "../../TableApi.mjs";
+import {DataFetcher} from "../../Course/Core/Ports/DataFetcher.mjs";
 
 export class DataFetcherAdapter extends DataFetcher {
 
@@ -22,8 +20,8 @@ export class DataFetcherAdapter extends DataFetcher {
     /**
      * @returns {array}
      */
-    fetchData() {
-        const response = fetch('students.json')
+    async fetchData() {
+        return await fetch('students.json')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`HTTP error: ${response.status}`);
@@ -31,8 +29,6 @@ export class DataFetcherAdapter extends DataFetcher {
                 return response.json();
             })
             .catch((err) => console.error(`Fetch problem: ${err.message}`));
-        return response;
     }
 
 }
-customElements.define('flux-eco-web-elements-table-adapters-data-fetcher-adapter', DataFetcherAdapter);

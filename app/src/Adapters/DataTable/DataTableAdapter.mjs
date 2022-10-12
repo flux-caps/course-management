@@ -1,14 +1,13 @@
-import {TableApi} from "./../../../lib/FluxEcoWebElements/Table/src/TableApi.mjs";
+import {TableApi} from "../../../lib/FluxEcoWebElements/Table/src/Adapters/TableApi.mjs";
 import {DataTable} from "../../Course/Core/Ports/DataTable.mjs";
 
 export class DataTableAdapter extends DataTable {
 
     /**
-     * @returns {DataFetcherAdapter}
+     * @returns {DataTable}
      */
     static new() {
-        return new this(
-        );
+        return new this();
     }
 
     /**
@@ -21,8 +20,7 @@ export class DataTableAdapter extends DataTable {
     /**
      * @returns {HTMLTableElement}
      */
-    render() {
-        return TableApi.new().render()
+    render(data) {
+        return TableApi.new(data).render()
     }
 }
-customElements.define('flux-eco-course-management-adapters-data-table-adapter', DataTableAdapter);
