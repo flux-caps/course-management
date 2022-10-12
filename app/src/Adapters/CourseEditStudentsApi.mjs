@@ -27,7 +27,7 @@ export class CourseEditStudentsApi extends HTMLElement {
         );
 
         this.#shadow = this.attachShadow({ mode: "closed" });
-        this.#shadow.appendChild(
+        this.#shadow.append(
             service.editStudents(
                 DataTableAdapter.new()
             )

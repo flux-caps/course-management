@@ -1,5 +1,8 @@
-export class Course extends HTMLElement {
-
+export class Course {
+    /**
+     * HTMLElement
+     */
+    #coursePage;
     /**
      * @type {DataFetcher}
      */
@@ -21,7 +24,7 @@ export class Course extends HTMLElement {
      * @private
      */
     constructor(dataFetcher) {
-        super();
+        this.#coursePage = document.createElement("span");
         this.#dataFetcher = dataFetcher;
     }
 
@@ -32,9 +35,10 @@ export class Course extends HTMLElement {
     editStudents(
         dataTable
     ) {
-        return dataTable.render(
+        this.#coursePage.appendChild(
+            dataTable.render(
             this.#dataFetcher.fetchData()
-        )
+        ));
+        return this.#coursePage;
     }
 }
-customElements.define('flux-eco-course', Course);
