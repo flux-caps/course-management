@@ -5,7 +5,7 @@ import {DataFetcherAdapter} from "./DataFetcher/DataFetcherAdapter.mjs";
 export class CourseEditStudentsApi extends HTMLElement {
 
     /**
-     * @type {ShadowRoot}
+     * @type {ShadowRoot}cu
      */
     #shadow;
 
