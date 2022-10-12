@@ -31,5 +31,7 @@ export class Tr extends HTMLElement {
         }
         return tr;
     }
+
+
 }
 customElements.define('flux-eco-web-elements-table-core-tr', Tr);

@@ -32,9 +32,7 @@ export class CourseEditStudentsApi extends HTMLElement {
                 DataTableAdapter.new()
             )
        );
-        document.body.appendChild(
-            this.#shadow
-        );
+
     }
 }
 customElements.define('flux-eco-course-edit-students', CourseEditStudentsApi);
