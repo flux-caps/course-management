@@ -8,3 +8,4 @@ services:
       - ./app:/app
     ports:
       - 8010:9501
+      - 9503:9503

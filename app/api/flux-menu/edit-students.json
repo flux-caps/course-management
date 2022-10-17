@@ -1,0 +1,12 @@
+[
+  {
+    "href": "/test1",
+    "ariaCurrent": "",
+    "innerHTML": "test"
+  },
+  {
+    "href": "/test2",
+    "ariaCurrent": "test2",
+    "innerHTML": "test2"
+  }
+]
