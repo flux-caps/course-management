@@ -11,34 +11,24 @@ export class SchemaInstancesAdapter extends SchemaInstances {
     menuItemSlot;
 
     static new() {
-        const obj = new this();
-        obj.load();
-        return obj;
+       return new this();
     }
 
     constructor() {
         super();
     }
 
-    load() {
-        return  async() => await this.init()
-    }
 
 
-    init() {
-        Promise.all([
-                async () => await fetch('/modules/flux-layout-primer/src/Adapters/SchemaInstances/Menu.json').then(
-                    (response) => response.json().then(
-                        (json) => this.menu = json
-                    )
-                ),
-                async () => await fetch('/modules/flux-layout-primer/src/Adapters/SchemaInstances/MenuItemSlot.json').then(
-                    (response) => response.json().then(
-                        (json) => this.menuItemSlot = json
-                    )
-                )
-            ]
-        ).then(r => true).finally( true);
+    async init() {
+       await fetch('/modules/flux-layout-primer/src/Adapters/SchemaInstances/Menu.json').then(
+            (response) => response.json().then(
+                (json) => this.menu = json
+            ));
+       await fetch('/modules/flux-layout-primer/src/Adapters/SchemaInstances/MenuItemSlot.json').then(
+            (response) => response.json().then(
+                (json) => this.menuItemSlot = json
+            ));
 
     }
 }

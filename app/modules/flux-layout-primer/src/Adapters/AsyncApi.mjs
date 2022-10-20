@@ -3,10 +3,6 @@ import Service from "../Core/Ports/Service.mjs";
 
 export default class AsyncApi {
 
-    /**
-     * @type {Service}
-     */
-    service;
     #channels = {
         "getMenuLayout": new BroadcastChannel("flux-layout/getMenuLayout")
     }
@@ -14,18 +10,19 @@ export default class AsyncApi {
 
     static new() {
         const obj = new AsyncApi();
-        obj.initService();
         obj.startListeners();
         return obj;
     }
 
-    initService() {
+    async initService() {
         //const Service = async () => await import("/modules/flux-layout-primer/src/Core/Ports/Service.mjs");
         // const SchemaInstancesAdapter = async () => await import("/modules/flux-layout-primer/src/Adapters/SchemaInstances/SchemaInstancesAdapter.mjs");
         const schemaInstancesAdapter = SchemaInstancesAdapter.new();
-        this.service = Service.new(
+        await schemaInstancesAdapter.init();
+        const service = await Service.new(
             schemaInstancesAdapter
         );
+        return service;
     }
 
     /**
@@ -49,8 +46,9 @@ export default class AsyncApi {
     /**
      * @private
      */
-    onGetMenuLayout(replyTo, payload) {
-        const htmlLayout = this.service;
+    async onGetMenuLayout(replyTo, payload) {
+        const service = await this.initService();
+        const htmlLayout = service.getMenuLayout(payload);
         new BroadcastChannel(replyTo).postMessage(
             {
                 payload: {
