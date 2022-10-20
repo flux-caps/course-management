@@ -3,7 +3,7 @@ export default class LayoutElementAggregate {
     /**
      * @type HTMLElement
      */
-    #htmlElement;
+    htmlElement;
 
     /**
      * @param schemaInstance
@@ -26,6 +26,7 @@ export default class LayoutElementAggregate {
      * @param {HTMLElement} htmlElement
      * @return {LayoutElementAggregate}
      */
+    /*
     appendHtmlElementChild(htmlElement) {
         this.applyAppendInstanceChild(htmlElement)
         return this;
@@ -35,9 +36,10 @@ export default class LayoutElementAggregate {
      * @private
      * @param {HTMLElement} htmlElement
      */
+    /*
     applyAppendHtmlElementChild(htmlElement) {
-        this.#htmlElement.appendChild(htmlElement);
-    }
+        this.htmlElement.appendChild(htmlElement);
+    }*/
 
     /**
      * @private
@@ -52,7 +54,7 @@ export default class LayoutElementAggregate {
      * @private
      */
     applyCreated(schemaInstance) {
-        this.#htmlElement = schemaInstance
+        this.htmlElement = schemaInstance
     }
 
     /**
@@ -71,21 +73,22 @@ export default class LayoutElementAggregate {
     applyAssignAttributes(attributes) {
         Object.entries(attributes).forEach(
             (([key, value]) => {
-                    this.#htmlElement.setAttribute(key, value)
+                    this.htmlElement.setAttribute(key, value)
                 }
             )
         )
     }
 
     /**
-     * @private
      * @param {object} schemaInstance
      */
     appendInstanceChildren(schemaInstance) {
         if (schemaInstance.hasOwnProperty('children')) {
             console.log(schemaInstance.children);
             this.applyAppendInstanceChildren(schemaInstance.children)
+            return this;
         }
+        return this;
     }
 
     /**
@@ -95,7 +98,7 @@ export default class LayoutElementAggregate {
     applyAppendInstanceChildren(listOfSchemaInstances) {
         listOfSchemaInstances.forEach(
             (schemaInstance) => {
-                this.applyAppendInstanceChild(schemaInstance)
+                this.applyAppendInstanceChild(schemaInstance, schemaInstance.attributes)
             }
         )
     }
@@ -107,7 +110,8 @@ export default class LayoutElementAggregate {
      */
     applyAppendInstanceChild(schemaInstance, customAttributes= null) {
         console.log(schemaInstance);
-        this.#htmlElement.appendChild(LayoutElementAggregate.new(schemaInstance, customAttributes).getHtmlElement())
+        console.log(customAttributes)
+        this.htmlElement.appendChild(LayoutElementAggregate.new(schemaInstance, customAttributes).getHtmlElement())
     }
 
     /**
@@ -127,6 +131,6 @@ export default class LayoutElementAggregate {
      * @return {HTMLElement}
      */
     getHtmlElement() {
-        return this.#htmlElement
+        return this.htmlElement
     }
 }

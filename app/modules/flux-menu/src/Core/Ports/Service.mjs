@@ -17,4 +17,10 @@ export default class Service {
         aggregate.createShadowRoot(htmlLayout);
     }
 
+    async onShadowRootCreated(id) {
+        const aggregate = Aggregate.new(id);
+
+        const links = await (await fetch('/api/flux-menu/edit-students.json')).json();
+        aggregate.setLinks(links);
+    }
 }

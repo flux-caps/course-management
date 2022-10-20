@@ -18,17 +18,8 @@ export class SchemaInstancesAdapter extends SchemaInstances {
         super();
     }
 
-
-
     async init() {
-       await fetch('/modules/flux-layout-primer/src/Adapters/SchemaInstances/Menu.json').then(
-            (response) => response.json().then(
-                (json) => this.menu = json
-            ));
-       await fetch('/modules/flux-layout-primer/src/Adapters/SchemaInstances/MenuItemSlot.json').then(
-            (response) => response.json().then(
-                (json) => this.menuItemSlot = json
-            ));
-
+       this.menu = await (await fetch('/modules/flux-layout-primer/src/Adapters/SchemaInstances/Menu.json')).json();
+       this.menuItemSlot = await (await fetch('/modules/flux-layout-primer/src/Adapters/SchemaInstances/MenuItemSlot.json')).json();
     }
 }

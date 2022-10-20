@@ -49,11 +49,12 @@ export default class AsyncApi {
     async onGetMenuLayout(replyTo, payload) {
         const service = await this.initService();
         const htmlLayout = service.getMenuLayout(payload);
-        new BroadcastChannel(replyTo).postMessage(
+        const channel = new BroadcastChannel(replyTo)
+        channel.postMessage(
             {
                 payload: {
                     "id": payload.id,
-                    "htmlLayout": htmlLayout
+                    "htmlLayout": htmlLayout.outerHTML
                 }
             }
         )

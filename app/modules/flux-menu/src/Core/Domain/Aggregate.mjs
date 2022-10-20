@@ -1,115 +1,136 @@
 export default class Aggregate {
-    /**
-     * @var {string}
-     */
-    id;
+  /**
+   * @var {string}
+   */
+  id;
 
-    /**
-     * @param {string} id
-     * @return {Aggregate}
-     */
-    static new(id) {
-        return new this(id);
-    }
+  /**
+   * @param {string} id
+   * @return {Aggregate}
+   */
+  static new(id) {
+    return new this(id);
+  }
 
-    constructor(id) {
-        this.id = id;
-    }
+  constructor(id) {
+    this.id = id;
+  }
 
-    /**
-     * @param {string} htmlLayout
-     * @return Aggregate
-     */
-    createShadowRoot( htmlLayout) {
-        //todo do some checkes
-        this.applyCreateShadowRoot(htmlLayout)
-    }
+  /**
+   * @return Aggregate
+   */
+  setLinks(links) {
+    //todo do some checkes
+    this.applySetLinks(links)
+  }
 
-    /**
-     * @param {string} htmlLayout
-     */
-    applyCreateShadowRoot(htmlLayout) {
-        const shadowRoot = document.getElementById(this.id).attachShadow({mode: "closed"});
-        const template = document.createElement("template");
-        template.innerHTML = htmlLayout;
-        shadowRoot.appendChild(template.content.cloneNode(true));
-    }
+  applySetLinks(links) {
 
 
+    links.forEach(
+      (link) => {
+        const menuItem = document.createElement('a');
+        const item = Object.assign(menuItem,link)
+        item.slot = "item";
+        document.getElementByName('flux-menu').node.insertAfter(item)
+      }
+    );
 
-    /**
-     * @return {HtmlMenuElement.slot}
-     */
-    /*
-    slot = function() {
-        const obj = {};
-        obj.name = 'item';
-        obj.tag = 'a';
-        obj.props = {};
-        obj.props.className = "menu-item f3";
-        obj.props.href = "#";
-        return obj;
-    }*/
+  }
 
-    /**
-     * @param slot
-     * @return HTMLElement
-     */
-    /*
-    slotHtmlElement = function(slot) {
-        const slotHtmlElement = document.createElement('slot');
-        slotHtmlElement.name = slot.name;
+  /**
+   * @param {string} htmlLayout
+   * @return Aggregate
+   */
+  createShadowRoot(htmlLayout) {
+    //todo do some checkes
+    this.applyCreateShadowRoot(htmlLayout)
+  }
 
-        const slotInnerHtmlElement = document.createElement(slot.tag)
-        slot.props.forEach((([key, value]) => {
-                slotInnerHtmlElement.setAttribute(key, value)
-            })
-        )
-
-        slotHtmlElement.appendChild(slot);
-
-        return slotHtmlElement;
-    };
-    */
-
-    /*
-    nav = function(title, slotHtmlElement) {
-        const nav = document.createElement(
-            'nav'
-        );
-        nav.clasName = "menu";
-        nav.ariaLabel = "title";
-        nav.appendChild(document.createElement(
-            "span", {
-                class: "menu-heading"
-            }
-        ));
-        nav.appendChild(
-            slotHtmlElement
-        );
-        return nav;
-    }*/
+  /**
+   * @param {string} htmlLayout
+   */
+  applyCreateShadowRoot(htmlLayout) {
+    const shadowRoot = document.getElementById(this.id).attachShadow({ mode: "closed" });
+    const template = document.createElement("template");
+    template.innerHTML = htmlLayout;
+    shadowRoot.appendChild(template.content.cloneNode(true));
+  }
 
 
-    /**
-     * @private
-     */
-   /* constructor() {
-        super();
-        this.#channelFluxMenu = new BroadcastChannel("flux_menu");
-        this.#shadowRoot = this.
-    }
+  /**
+   * @return {HtmlMenuElement.slot}
+   */
+  /*
+  slot = function() {
+      const obj = {};
+      obj.name = 'item';
+      obj.tag = 'a';
+      obj.props = {};
+      obj.props.className = "menu-item f3";
+      obj.props.href = "#";
+      return obj;
+  }*/
+
+  /**
+   * @param slot
+   * @return HTMLElement
+   */
+  /*
+  slotHtmlElement = function(slot) {
+      const slotHtmlElement = document.createElement('slot');
+      slotHtmlElement.name = slot.name;
+
+      const slotInnerHtmlElement = document.createElement(slot.tag)
+      slot.props.forEach((([key, value]) => {
+              slotInnerHtmlElement.setAttribute(key, value)
+          })
+      )
+
+      slotHtmlElement.appendChild(slot);
+
+      return slotHtmlElement;
+  };
+  */
+
+  /*
+  nav = function(title, slotHtmlElement) {
+      const nav = document.createElement(
+          'nav'
+      );
+      nav.clasName = "menu";
+      nav.ariaLabel = "title";
+      nav.appendChild(document.createElement(
+          "span", {
+              class: "menu-heading"
+          }
+      ));
+      nav.appendChild(
+          slotHtmlElement
+      );
+      return nav;
+  }*/
+
+
+  /**
+   * @private
+   */
+  /* constructor() {
+       super();
+       this.#channelFluxMenu = new BroadcastChannel("flux_menu");
+       this.#shadowRoot = this.
+   }
 */
-    /*
-    connectedCallback() {
-        this.#channelFluxMenu.postMessage(
-            FluxMenuMessage.Connnected(
-                this.id,
-                this.slot()
-            )
-        );
-    }
-     */
+  /*
+  connectedCallback() {
+      this.#channelFluxMenu.postMessage(
+          FluxMenuMessage.Connnected(
+              this.id,
+              this.slot()
+          )
+      );
+  }
+   */
 
 
 }
