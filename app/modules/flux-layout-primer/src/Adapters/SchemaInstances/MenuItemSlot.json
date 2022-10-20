@@ -1,0 +1,14 @@
+{
+  "tagName": "slot",
+  "name": "item",
+  "children": [
+    {
+      "tagName": "a",
+      "slot": "item",
+      "attributes": {
+        "class": "menu-item f3",
+        "href": "#"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "tagName": "nav",
+  "attributes": {
+    "className": "menu",
+    "ariaLabel": "string"
+  },
+  "children": [
+    {
+      "tagName": "span",
+      "attributes": {
+        "className": "menu-heading"
+      }
+    }
+  ]
+}

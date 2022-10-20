@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/modules/flux-layout-primer/assets/css/primer.css"/>
+    <!--Use full Primer.style static CDN-->
+    <script type="module" src="app.mjs"></script>
+    <script type="module" src="/modules/flux-layout-primer/main.mjs"></script>
+    <script type="module" src="/modules/flux-menu/main.mjs"></script>
+</head>
+<body >
+
+<div class="Header flex-justify-end color-bg-accent-emphasis">
+    <div class="Header-item px-3 color-bg-default">
+        <a href="#" class="Header-link color-fg-default">Aktivierung</a>
+    </div>
+    <div class="Header-item px-3">
+        <a href="#" class="Header-link">Biomedizinische Analytik</a>
+    </div>
+    <div class="Header-item px-3">
+        <a href="#" class="Header-link">Dentalhygiene</a>
+    </div>
+    <div class="Header-item px-3">
+        <a href="#" class="Header-link">Medizinisch-Technische Radiologie</a>
+    </div>
+    <div class="Header-item px-3">
+        <a href="#" class="Header-link">Operations- Technik</a>
+    </div>
+    <div class="Header-item px-3">
+        <a href="#" class="Header-link">Rettungssanität</a>
+    </div>
+    <div class="Header-item px-3">
+        <a href="#" class="Header-link">Soins Ambulanciers</a>
+    </div>
+</div>
+
+<nav aria-label="Breadcrumb" class="mt-3 ml-6  mb-3 f3">
+    <ol>
+        <li class="breadcrumb-item">
+           Aktivierung
+        </li>
+        <li class="breadcrumb-item">
+            Klassen
+        </li>
+        <li class="breadcrumb-item breadcrumb-item-selected">
+            <a href="https://github.com/business/customers">AT 21-24</a>
+        </li>
+    </ol>
+</nav>
+
+<div class="Layout ml-6 mr-6">
+
+    <div class="Layout-main ">
+
+        <nav class="UnderlineNav" aria-label="Foo bar">
+            <div class="UnderlineNav-body ">
+                <a class="UnderlineNav-item f3" href="#url" aria-current="page">Kurse</a>
+                <a class="UnderlineNav-item f3" href="#url">Studierende</a>
+                <a class="UnderlineNav-item f3" href="#url">Dozierende</a>
+            </div>
+        </nav>
+
+        <div class="p-1">
+            <div class="Toast Toast--success ml-0 pl-0">
+    <span class="Toast-icon">
+      <!-- <%= octicon "check" %> -->
+      <svg width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-check" aria-hidden="true">
+        <path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z" />
+      </svg>
+    </span>
+                <span class="Toast-content" id="toast">Kurse wurden erstellt</span>
+            </div>
+        </div>
+
+        <div class="border p-3 d-flex flex-column flex-sm-row flex-sm-items-center mb-6">
+            <div class="pr-0 pr-sm-3 mb-3 mb-sm-0  flex-justify-center flex-sm-justify-start">
+                <span class="d-block">Klasse OT 21-24</span><span class="d-block Label Label--attention">Offline</span>
+            </div>
+            <div class="d-flex text-center flex-auto">
+                Body Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.
+            </div>
+            <div class="ml-sm-3 d-flex ">
+                <form>
+                    <div class="radio-group">
+                        <input class="radio-input" id="option-a" type="radio" name="options">
+                        <label class="radio-label" for="option-a">Leserechte</label>
+                        <input class="radio-input" id="option-b" type="radio" name="options">
+                        <label class="radio-label" for="option-b">Schreibrechte</label>
+                        <input class="radio-input" id="option-c" type="radio" name="options">
+                        <label class="radio-label" for="option-c">Kein Zugriff</label>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="subnav ">
+            <div class="float-left subnav-search-context">
+                <button class="btn" type="button" name="button" aria-expanded="false" aria-haspopup="true">
+                    Filters
+                    <span class="dropdown-caret"></span>
+                </button>
+            </div>
+            <div class="subnav-search float-left">
+                <input type="search" name="name" class="form-control subnav-search-input" value="" aria-label="Search site" />
+                <!-- <%= octicon "search", class: "subnav-search-icon" %> -->
+                <svg class="subnav-search-icon octicon octicon-search" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"> <path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z" /> </svg>
+            </div>
+            <div class="BtnGroup d-flex flex-justify-end ">
+                <button class="BtnGroup-item btn btn-outline" type="button">Alle Kurse Leserechte</button>
+                <button class="BtnGroup-item btn btn-outline" type="button">Alle Kurse Schreibrechte</button>
+            </div>
+        </div>
+
+        <span class="branch-name"><span>Loading</span><span class="AnimatedEllipsis"></span></span><br>
+
+        <div class="border p-3 d-flex flex-column flex-sm-row flex-sm-items-center">
+            <div class="pr-0 pr-sm-3 mb-3 mb-sm-0  flex-justify-center flex-sm-justify-start">
+                <span class="d-block">Kurs 1</span><span class="d-block Label Label--attention">Offline</span>
+            </div>
+            <div class="d-flex text-center flex-auto">
+               Body Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.
+            </div>
+            <div class="ml-sm-3 d-flex ">
+                <form>
+                    <div class="radio-group">
+                        <input class="radio-input" id="option-a" type="radio" name="options">
+                        <label class="radio-label" for="option-a">Leserechte</label>
+                        <input class="radio-input" id="option-b" type="radio" name="options">
+                        <label class="radio-label" for="option-b">Schreibrechte</label>
+                        <input class="radio-input" id="option-c" type="radio" name="options">
+                        <label class="radio-label" for="option-c">Kein Zugriff</label>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="border p-3 d-flex flex-column flex-sm-row flex-sm-items-center">
+            <div class="pr-0 pr-sm-3 mb-3 mb-sm-0  flex-justify-center flex-sm-justify-start">
+                <span class="d-block">Kurs 2</span>      <span class="Label mr-1 Label--success">Online</span>
+            </div>
+            <div class="d-flex text-center flex-auto">
+                noch eine Beschreibung
+            </div>
+            <div class="ml-sm-3 d-flex ">
+                <form>
+                    <div class="radio-group2">
+                        <input class="radio-input" id="option-a2" type="radio" name="options">
+                        <label class="radio-label" for="option-a2">Leserechte</label>
+                        <input class="radio-input" id="option-b3" type="radio" name="options">
+                        <label class="radio-label" for="option-b3">Schreibrechte</label>
+                        <input class="radio-input" id="option-c4" type="radio" name="options">
+                        <label class="radio-label" for="option-c4">Kein Zugriff</label>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <nav class="paginate-container" aria-label="Pagination">
+            <div class="pagination">
+                <span class="previous_page" aria-disabled="true">Vor</span>
+                <em aria-current="page">1</em>
+                <a href="#url" aria-label="Page 2">2</a>
+                <a href="#url" aria-label="Page 3">3</a>
+                <span class="gap">…</span>
+                <a href="#url" aria-label="Page 8">8</a>
+                <a href="#url" aria-label="Page 9">9</a>
+                <a href="#url" aria-label="Page 10">10</a>
+                <a class="next_page" rel="next" href="#url" aria-label="Next Page">Nächste</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="Layout-sidebar mt-3">
+        <flux-menu id="edit-students"></flux-menu>
+
+        <nav class="menu" aria-labelledby="menu-heading">
+            <span class="menu-heading" id="menu-heading">Weiterbildungskurse</span>
+            <a class="menu-item" href="#url">2001</a>
+            <a class="menu-item" href="#url">2002</a>
+        </nav>
+    </div>
+</div>
+
+
+</body>
+</html>

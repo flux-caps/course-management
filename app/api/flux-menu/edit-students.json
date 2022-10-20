@@ -1,12 +1,11 @@
 [
   {
-    "href": "/test1",
-    "ariaCurrent": "",
-    "innerHTML": "test"
+    "href": "/page1",
+    "ariaCurrent": "page1",
+    "innerHTML": "AT 21-24"
   },
   {
     "href": "/test2",
-    "ariaCurrent": "test2",
-    "innerHTML": "test2"
+    "innerHTML": "AT 22-25"
   }
 ]

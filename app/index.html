@@ -1,13 +1,28 @@
 <!DOCTYPE html>
-<html lang="de">
 <head>
-    <meta charset="UTF-8"/>
-    <title></title>
-    <script type="module" src="lib/FluxEcoWebElements/FluxMenu/main.mjs"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/modules/flux-layout-primer/assets/css/primer.css"/>
+    <!--Use full Primer.style static CDN-->
+    <script type="module" src="app.mjs"></script>
+    <script type="module" src="/modules/flux-layout-primer/main.mjs"></script>
+    <script type="module" src="/modules/flux-menu/main.mjs"></script>
 </head>
-<body>
+<body >
 
-<flux-menu id="menu-id-todo"></flux-menu>
+<div class="Layout ml-6 mr-6">
+
+    <div class="Layout-main ">
+
+
+    </div>
+
+    <div class="Layout-sidebar mt-3">
+        <flux-menu id="edit-students"></flux-menu>
+    </div>
+</div>
+
 
 </body>
 </html>
