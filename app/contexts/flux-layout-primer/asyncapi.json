@@ -1,0 +1,44 @@
+{
+  "asyncapi": "fluxLayout",
+  "info": "//#https://github.com/asyncapi/spec/issues/618",
+  "title": "a menu developed and maintained by fluxlabs",
+  "version": "0.0.0",
+  "components": {
+    "channels": {
+        "createMenu": {
+          "address": "fluxLayout/createMenu",
+          "receive": "CreateMenu"
+        },
+        "menuCreated": {
+          "address": "fluxLayout/menuCreated",
+          "send": "MenuCreated"
+        }
+    },
+    "operations": {
+      "createMenu": {
+        "channel": {
+
+        },
+        "receive": {
+
+        }
+      },
+      "onMenuCreated": {
+        "channel": {
+
+        },
+        "send": {
+
+        }
+      }
+    },
+    "messages": {
+      "CreateMenu":{
+
+      },
+      "MenuCreated":{
+
+      }
+    }
+  }
+}

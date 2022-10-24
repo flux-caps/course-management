@@ -1,3 +1,5 @@
+import DomainEventDispatcher from '../Ports/DomainEventDispatcher.mjs';
+
 export default class Aggregate {
   /**
    * @var {string}
@@ -5,15 +7,44 @@ export default class Aggregate {
   id;
 
   /**
+   * @var {DomainEventDispatcher}
+   */
+  #domainEventPublisher;
+
+  /**
    * @param {string} id
+   * @param {DomainEventDispatcher} domainEventPublisher
    * @return {Aggregate}
    */
-  static new(id) {
-    return new this(id);
+  static new(id, domainEventPublisher) {
+    return new this(id, domainEventPublisher);
   }
 
-  constructor(id) {
+  /**
+   * @param {string} id
+   * @param {DomainEventDispatcher} domainEventPublisher
+   */
+  constructor(id, domainEventPublisher) {
     this.id = id;
+    this.domainEventPublisher = domainEventPublisher;
+  }
+
+  /**
+   * @return Aggregate
+   */
+  create() {
+    this.#applyCreated();
+    return this;
+  }
+
+  #applyCreated() {
+    document.getElementById(this.id).attachShadow({ mode: "closed" });
+
+    this.#domainEventPublisher.created(
+      {
+        id: this.id
+      }
+    )
   }
 
   /**
@@ -26,11 +57,10 @@ export default class Aggregate {
 
   applySetLinks(links) {
 
-
     links.forEach(
       (link) => {
         const menuItem = document.createElement('a');
-        const item = Object.assign(menuItem,link)
+        const item = Object.assign(menuItem, link);
         item.slot = "item";
         document.getElementByName('flux-menu').node.insertAfter(item)
       }
@@ -44,17 +74,22 @@ export default class Aggregate {
    */
   createShadowRoot(htmlLayout) {
     //todo do some checkes
+    console.log("ddd");
     this.applyCreateShadowRoot(htmlLayout)
+    return this;
   }
 
   /**
    * @param {string} htmlLayout
    */
   applyCreateShadowRoot(htmlLayout) {
-    const shadowRoot = document.getElementById(this.id).attachShadow({ mode: "closed" });
+    const shadowRoot = document.getElementById(this.id).attachShadow({ mode: "open" });
     const template = document.createElement("template");
-    template.innerHTML = htmlLayout;
+    template.innerHtml = htmlLayout;
     shadowRoot.appendChild(template.content.cloneNode(true));
+
+    //publish
+
   }
 
 

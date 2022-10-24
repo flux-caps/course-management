@@ -12,8 +12,14 @@ export default class Service {
 
     }
 
+    create(id) {
+        const aggregate = Aggregate.new(id);
+        aggregate.createShadowRoot()
+    }
+
     onMenuLayoutPublished(id, htmlLayout) {
         const aggregate = Aggregate.new(id);
+        console.log("ddddwww");
         aggregate.createShadowRoot(htmlLayout);
     }
 

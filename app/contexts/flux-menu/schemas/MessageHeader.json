@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "messageId": {
+      "type": "string"
+    },
+    "createdDateTime": {
+      "type": "string"
+    },
+    "replyToAddress": {
+      "type": "string"
+    }
+  }
+}

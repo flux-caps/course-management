@@ -1,0 +1,22 @@
+{
+  "asyncapi": "mediCourseManagement",
+  "info": "https://github.com/asyncapi/spec/issues/618",
+  "title": "",
+  "version": "0.0.0",
+  "components": {
+    "operations": {
+      "onFluxMenuCreated": {
+        "channel": {
+          "$ref": "contexts/flux-menu/asyncapi.json#/components/channels/created"
+        },
+        "receive": {
+          "$ref": "contexts/flux-menu/asyncapi.json#/components/messages/created"
+        },
+        "next": "#/components/operations/fluxLayoutCreateMenu"
+      },
+      "fluxLayoutCreateMenu": {
+
+      }
+    }
+  }
+}

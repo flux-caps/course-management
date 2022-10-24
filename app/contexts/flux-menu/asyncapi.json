@@ -1,0 +1,64 @@
+{
+  "asyncapi": "fluxMenu",
+  "$id": "/contexts/flux-menu/asyncapi.json",
+  "info": "https://github.com/asyncapi/spec/issues/618",
+  "title": "a menu developed and maintained by fluxlabs",
+  "version": "0.0.0",
+  "components": {
+    "channels": {
+      "created": {
+        "address": "fluxMenu/created",
+        "send": "created"
+      },
+      "appendLayout": {
+        "address": "fluxMenu/appendLayout",
+        "receive": "appendLayout"
+      },
+      "layoutAppended": {
+        "address": "fluxMenu/layoutAppended",
+        "send": "layoutAppended"
+      }
+    },
+    "operations": {
+      "onCreated": {
+        "channel": "created",
+        "send": "created"
+      },
+      "appendLayout": {
+        "channel": "appendLayout",
+        "receive": "appendLayout",
+        "next": "onLayoutAppended"
+      },
+      "onLayoutAppended": {
+        "channel": "layoutAppended",
+        "send": "layoutAppended"
+      }
+    },
+    "messages": {
+      "created": {
+        "headers": {
+          "$ref": "/contexts/flux-menu/schemas/MessageHeader.json"
+        },
+        "payload": {
+          "$ref": "/modules/flux-menu/schemas/FluxMenuState.json"
+        }
+      },
+      "appendLayout": {
+        "headers": {
+          "$ref": "/contexts/flux-menu/schemas/MessageHeader.json"
+        },
+        "payload": {
+          "$ref": "/modules/flux-menu/schemas/FluxMenuLayout.json"
+        }
+      },
+      "layoutAppended": {
+        "headers": {
+          "$ref": "/contexts/flux-menu/schemas/MessageHeader.json"
+        },
+        "payload": {
+          "$ref": "/modules/flux-menu/schemas/FluxMenuState.json"
+        }
+      }
+    }
+  }
+}
